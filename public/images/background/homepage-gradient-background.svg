@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2622.9 1525.4">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-1, .cls-2 {
+        mix-blend-mode: screen;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        mix-blend-mode: multiply;
+      }
+
+      .cls-4 {
+        fill: #e8baba;
+      }
+
+      .cls-5 {
+        isolation: isolate;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-7 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient-2);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-7" width="2622.9" height="1525.4"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="94.4" cy="1189.8" fx="94.4" fy="1189.8" r="442" gradientTransform="translate(4240.5 377.2) rotate(90) scale(5.1 3)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff6b0"/>
+      <stop offset="0" stop-color="#f5eca9"/>
+      <stop offset=".3" stop-color="#9f996e"/>
+      <stop offset=".6" stop-color="#5b573e"/>
+      <stop offset=".8" stop-color="#29281c"/>
+      <stop offset=".9" stop-color="#0b0a07"/>
+      <stop offset="1" stop-color="#000"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="363.8" cy="1250.9" fx="363.8" fy="1250.9" r="442" gradientTransform="translate(173.4 380.8) scale(2.5 .6)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#93e5ff"/>
+      <stop offset="0" stop-color="#8ddcf5"/>
+      <stop offset=".3" stop-color="#5b8f9f"/>
+      <stop offset=".6" stop-color="#34515b"/>
+      <stop offset=".8" stop-color="#182529"/>
+      <stop offset=".9" stop-color="#060a0b"/>
+      <stop offset="1" stop-color="#000"/>
+    </radialGradient>
+  </defs>
+  <g class="cls-5">
+    <g id="Layer_1" data-name="Layer 1">
+      <g class="cls-6">
+        <rect class="cls-4" width="2622.9" height="1525.4"/>
+        <ellipse class="cls-1" cx="667.3" cy="858.8" rx="1327.5" ry="2255.7" transform="translate(-231.7 1470.8) rotate(-86.4)"/>
+        <ellipse class="cls-2" cx="1069.5" cy="1153.6" rx="1089" ry="273.1"/>
+      </g>
+      <rect class="cls-3" width="2622.9" height="1525.4"/>
+    </g>
+  </g>
+</svg>

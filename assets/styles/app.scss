@@ -1,0 +1,293 @@
+$spinning-time: 15;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+body {
+    #__next {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        main {
+            flex-grow: 1;
+        }
+    }
+}
+
+img,
+video,
+svg {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+#welcome {
+    background: #edc8c4 url('/images/background/homepage-gradient-background.svg') no-repeat center;
+    background-size: cover;
+    height: 100%;
+}
+
+.text-shadow {
+    text-shadow: 0 3px 6px rgb(0 0 0 / 25%);
+}
+
+.card-glassmorphism {
+    background: rgba( 255, 255, 255, 0.25 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 2px solid rgba( 255, 255, 255, 0.2 );
+}
+
+.assets {
+    pointer-events: none;
+    .asset {
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 100%;
+        top: 0px;
+        &.asset-moon {
+            left: 2vw;
+            background-image: url('/images/objects/moon.png');
+            width: calc(18vw + 1rem);
+            animation-duration: 4s;
+            z-index: 1;
+        }
+        &.asset-star-1 {
+            left: 11vw;
+            background-image: url('/images/objects/star.png');
+            width: calc(6vw + 1rem);
+            animation-duration: 3s;
+            z-index: 1;
+        }
+        &.asset-lantern-1 {
+            left: 22vw;
+            background-image: url('/images/objects/lantern.png');
+            width: calc(4vw + 1rem);
+            animation-duration: 2.5s;
+        }
+        &.asset-star-2 {
+            right: 15vw;
+            background-image: url('/images/objects/star.png');
+            width: calc(4vw + 1rem);
+            animation-duration: 3s;
+        }
+        &.asset-star-3 {
+            right: 10vw;
+            background-image: url('/images/objects/star.png');
+            width: calc(3vw + 1rem);
+            animation-duration: 2.5s;
+        }
+        &.asset-lantern-2 {
+            right: 2vw;
+            background-image: url('/images/objects/lantern.png');
+            width: calc(6vw + 1rem);
+            animation-duration: 4s;
+        }
+        &.rope {
+            background-position-y: -10%;
+            transform-origin: top;
+            animation-name: object-swing;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        &.asset-cloud-1 {
+            left: 4vw;
+            background-image: url('/images/objects/cloud.png');
+            width: calc(16vw + 1rem);
+            background-position: center 27vw;
+            animation-duration: 10s;
+            z-index: 1;
+        }
+        &.asset-cloud-2 {
+            left: 4vw;
+            background-image: url('/images/objects/cloud.png');
+            width: calc(12vw + 1rem);
+            background-position: center 40vw;
+            animation-duration: 10s;
+            filter: blur(4px);
+        }
+        &.asset-cloud-3 {
+            right: 24vw;
+            background-image: url('/images/objects/cloud.png');
+            width: calc(10vw + 1rem);
+            background-position: center 2%;
+            animation-duration: 10s;
+        }
+        &.asset-cloud-4 {
+            right: 5vw;
+            background-image: url('/images/objects/cloud.png');
+            width: calc(22vw + 1rem);
+            background-position: center 30vw;
+            animation-duration: 10s;
+            z-index: 5;
+        }
+        &.cloud {
+            animation-name: cloud-flying;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+    }
+}
+
+@keyframes dropped-items {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes object-swing {
+    0%,
+    100% {
+        transform: rotate(-2.5deg);
+    }
+    50% {
+        transform: rotate(2.5deg);
+    }
+}
+
+@keyframes cloud-flying {
+    0%,
+    100% {
+        transform: translateX(-10%);
+    }
+    50% {
+        transform: translateX(10%);
+    }
+}
+
+.card-flip {
+    transform: scaleX(-1);
+    transition: 1s;
+    .MuiCardContent-root {
+        transform: scaleX(-1);
+        transition: 1s;
+    }
+}
+
+.card-step {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 1;
+    transition: .5s;
+    transition-delay: .3s;
+    &.hide {
+        opacity: 0;
+        transition-delay: 0s;
+        visibility: hidden;
+    }
+}
+
+.list {
+    overflow: hidden;
+    .list-names {
+        transition: transform #{$spinning-time}s cubic-bezier(.2, 0, 0, 1) 1s;
+        .list-names-item {
+            opacity: .75;
+        }
+    }
+    .arrow-left,
+    .arrow-right {
+        content: '';
+        display: block;
+        background: url('/images/logos/symbol-icon.svg') no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100px;
+        height: 100px;
+    }
+    .arrow-left {
+        left: 20%;
+    }
+    .arrow-right {
+        right: 20%;
+        transform: rotate(180deg);
+    }
+}
+
+.card-step {
+    &:not(.hide) {
+        .list {
+            .list-names-item {
+                opacity: .3;
+                transition: opacity .3s ease-out #{$spinning-time + 1}s;
+                &.winner {
+                    opacity: 1;
+                    animation: winner-name 1s infinite #{$spinning-time + 1}s;
+                }
+            }
+            .arrow-left {
+                animation: pointer-left 1s infinite #{$spinning-time + 1}s;
+            }
+            .arrow-right {
+                animation: pointer-right 1s infinite #{$spinning-time + 1}s;
+            }
+        }
+    }
+}
+
+@keyframes winner-name {
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes pointer-left {
+    50% {
+        transform: translateX(25%);
+    }
+}
+
+@keyframes pointer-right {
+    50% {
+        transform: translateX(-25%) rotate(180deg);
+    }
+}
+
+
+.btn-logo {
+    animation: btn-logo 2s infinite;
+}
+
+@keyframes btn-logo {
+    0%, 100% {
+        transform: translateX(-20%);
+    }
+    66% {
+        transform: translateX(20%);
+    }
+}
+
+.pyro {
+    &.active {
+        transition: opacity .3s ease-out #{$spinning-time + 1}s;
+    }
+}
+
+@import "./fireworks";
