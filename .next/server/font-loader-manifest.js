@@ -1,1 +1,0 @@
-self.__FONT_LOADER_MANIFEST={pages:{"/_app":["static/media/1283d0f73fcb7c11.p.woff2","static/media/6ba6592568e36c9f.p.woff2","static/media/8f5a022130d4daea.p.woff2"]},app:{}};
