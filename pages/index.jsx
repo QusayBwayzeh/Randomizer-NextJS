@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import Head from "next/head";
 import { useEffect, useState, useRef } from "react";
+const Names = require("./Names.json");
 
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -24,21 +25,8 @@ const spinningAudioDuration = 14;
 export default function HomePage() {
   const [cardFlip, setCardFlip] = useState(false);
 
-  const [employees, setEmployees] = useState([]);
-  const [winnerIndex, setWinnerIndex] = useState(null);
-
-  const fetchData = async () => {
-    const resp = await fetch("http://localhost:3000/api/hello");
-    const data = await resp.json();
-    if (data) {
-      setEmployees(shuffle(data));
-      setWinnerIndex(Math.floor(data.length / 2));
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const employees = shuffle(Names);
+  const winnerIndex = Math.floor(Names.length / 2);
 
   useEffect(() => {
     if (cardFlip) {
@@ -197,7 +185,7 @@ export default function HomePage() {
                               textTransform: "capitalize",
                               letterSpacing: "2px",
                             }}
-                            key={emp.id}
+                            key={emp.name}
                             style={{ lineHeight: "5rem" }}
                           >
                             {emp.name}
