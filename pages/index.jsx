@@ -1,14 +1,22 @@
-import { Badge, Box, Button, Card, CardContent, Container, Typography } from "@mui/material";
+import {
+  Badge,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Container,
+  Typography,
+} from "@mui/material";
 import Head from "next/head";
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef } from "react";
 
-const shuffle =  array => {
-  for(let i = array.length - 1; i > 0; i--) {
+const shuffle = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]]
+    [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
-}
+};
 
 const spinningTime = 15;
 const spinningAudioDuration = 14;
@@ -17,41 +25,42 @@ export default function HomePage() {
   const [cardFlip, setCardFlip] = useState(false);
 
   const [employees, setEmployees] = useState([]);
-  const [winnerIndex, setWinnerIndex] = useState(null)
+  const [winnerIndex, setWinnerIndex] = useState(null);
 
   const fetchData = async () => {
-    return fetch("http://localhost/RandomizerRoot/pages/api/hello.js")
-    .then(res => res.json())
-    .then(data => {
-      setEmployees(shuffle(data.ParticipantInfoCollection))
-      setWinnerIndex(Math.floor(data.ParticipantInfoCollection.length / 2))
-    })
-  }
-  
-  useEffect(()=> {
+    const resp = await fetch("http://localhost:3000/api/hello");
+    const data = await resp.json();
+    if (data) {
+      setEmployees(shuffle(data));
+      setWinnerIndex(Math.floor(data.length / 2));
+    }
+  };
+
+  useEffect(() => {
     fetchData();
   }, []);
-  
-  useEffect(()=> {
-    if(cardFlip) {
+
+  useEffect(() => {
+    if (cardFlip) {
       setTimeout(() => {
-        document.querySelector('#spinning').playbackRate = spinningAudioDuration / spinningTime;
-        document.querySelector('#spinning').play();
+        document.querySelector("#spinning").playbackRate =
+          spinningAudioDuration / spinningTime;
+        document.querySelector("#spinning").play();
       }, 1000);
       setTimeout(() => {
-        document.querySelector('#fireworks').play();
+        document.querySelector("#fireworks").play();
       }, spinningTime * 1000 + 1000);
     }
   }, [cardFlip]);
 
   const listItemLineHieght = 5;
-  const [listHeight, setListHeight] = useState(0)
-  const listRef = useRef(null)
+  const [listHeight, setListHeight] = useState(0);
+  const listRef = useRef(null);
 
   useEffect(() => {
-    setListHeight(listRef.current.clientHeight)
+    setListHeight(listRef.current.clientHeight);
   });
-  
+
   return (
     <>
       <Head>
@@ -60,34 +69,139 @@ export default function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.ico" />
       </Head>
-      <Box display="flex" flexDirection="column" justifyContent="center" id="welcome">
-        
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        id="welcome"
+      >
         <Container>
-          <Typography variant="h5" align="center" className="text-shadow" color="white" fontWeight="bold">Hemmeh { process.env.NEXT_PUBLIC_HEMMEH }</Typography>
-          <Typography variant="h1" align="center" className="text-shadow" color="secondary" fontWeight="bold">week <Badge badgeContent={process.env.NEXT_PUBLIC_WEEK_NO} color="primary" slotProps={{ root: { style: { transform: 'translate(1rem, -2rem)' } }, badge: { style: { width: '3rem', height: '3rem', borderRadius: '50%', fontSize: '2.5rem', fontWeight: 700 } } }} /></Typography>
-          <Typography variant="h3" align="center" className="text-shadow" color="white" mb={3} gutterBottom>Ramadan</Typography>
-          <Card className={`card-glassmorphism ${cardFlip ? 'card-flip' : ''}`} elevation={0}>
+          <Typography
+            variant="h5"
+            align="center"
+            className="text-shadow"
+            color="white"
+            fontWeight="bold"
+          >
+            Hemmeh {process.env.NEXT_PUBLIC_HEMMEH}
+          </Typography>
+          <Typography
+            variant="h1"
+            align="center"
+            className="text-shadow"
+            color="secondary"
+            fontWeight="bold"
+          >
+            week{" "}
+            <Badge
+              badgeContent={process.env.NEXT_PUBLIC_WEEK_NO}
+              color="primary"
+              slotProps={{
+                root: { style: { transform: "translate(1rem, -2rem)" } },
+                badge: {
+                  style: {
+                    width: "3rem",
+                    height: "3rem",
+                    borderRadius: "50%",
+                    fontSize: "2.5rem",
+                    fontWeight: 700,
+                  },
+                },
+              }}
+            />
+          </Typography>
+          <Typography
+            variant="h3"
+            align="center"
+            className="text-shadow"
+            color="white"
+            mb={3}
+            gutterBottom
+          >
+            Ramadan
+          </Typography>
+          <Card
+            className={`card-glassmorphism ${cardFlip ? "card-flip" : ""}`}
+            elevation={0}
+          >
             <CardContent>
-              <Box display="flex" flexDirection="column" justifyContent="center" sx={{ minHeight: 350 }}>
-                <div className={`card-step ${cardFlip ? 'hide' : ''}`}>
-                  <Typography variant="h4" align="center" marginX="auto" marginBottom={5} maxWidth={500} gutterBottom>The winner of the Week { process.env.NEXT_PUBLIC_WEEK_NO } attendance of Ramadan is</Typography>
+              <Box
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                sx={{ minHeight: 350 }}
+              >
+                <div className={`card-step ${cardFlip ? "hide" : ""}`}>
+                  <Typography
+                    variant="h4"
+                    align="center"
+                    marginX="auto"
+                    marginBottom={5}
+                    maxWidth={500}
+                    gutterBottom
+                  >
+                    The winner of the Week {process.env.NEXT_PUBLIC_WEEK_NO}{" "}
+                    attendance of Ramadan is
+                  </Typography>
                   <Box display="flex" justifyContent="center">
-                    <Button onClick={(e) => setCardFlip(true)} variant="contained" color="secondary" size="large" sx={{ height: 54 }}>
-                      <img className="btn-logo" src="./images/logos/symbol.svg" width={27} /> &nbsp;&nbsp;
-                      Flip The Card
+                    <Button
+                      onClick={(e) => setCardFlip(true)}
+                      variant="contained"
+                      color="secondary"
+                      size="large"
+                      sx={{ height: 54 }}
+                    >
+                      <img
+                        className="btn-logo"
+                        src="./images/logos/symbol.svg"
+                        width={27}
+                      />{" "}
+                      &nbsp;&nbsp; Flip The Card
                     </Button>
                   </Box>
                 </div>
-                <div className={`card-step ${!cardFlip ? 'hide' : ''}`} style={{ justifyContent: 'flex-start' }}>
+                <div
+                  className={`card-step ${!cardFlip ? "hide" : ""}`}
+                  style={{ justifyContent: "flex-start" }}
+                >
                   <div className="list" ref={listRef}>
-
                     <div className="arrow-left"></div>
                     <div className="arrow-right"></div>
 
-                    <div className="list-names" style={{ transform: `translateY(${cardFlip ? `calc(${-winnerIndex / employees.length * 100}% + ${listHeight / 2}px - ${ listItemLineHieght / 2 }rem )` : 0 })` }}>
+                    <div
+                      className="list-names"
+                      style={{
+                        transform: `translateY(${
+                          cardFlip
+                            ? `calc(${
+                                (-winnerIndex / employees.length) * 100
+                              }% + ${listHeight / 2}px - ${
+                                listItemLineHieght / 2
+                              }rem )`
+                            : 0
+                        })`,
+                      }}
+                    >
                       {employees.map((emp, index) => (
-                        <div className={`list-names-item ${index == winnerIndex ? 'winner' : ''}`} key={index}>
-                          <Typography color="secondary" variant="h4" align="center" sx={{ textTransform: 'capitalize', letterSpacing: '2px' }} key={emp.ParticipantId} style={{ lineHeight: '5rem' }}>{ emp.ParticipantName }</Typography>
+                        <div
+                          className={`list-names-item ${
+                            index == winnerIndex ? "winner" : ""
+                          }`}
+                          key={index}
+                        >
+                          <Typography
+                            color="secondary"
+                            variant="h4"
+                            align="center"
+                            sx={{
+                              textTransform: "capitalize",
+                              letterSpacing: "2px",
+                            }}
+                            key={emp.id}
+                            style={{ lineHeight: "5rem" }}
+                          >
+                            {emp.name}
+                          </Typography>
                         </div>
                       ))}
                     </div>
@@ -97,11 +211,15 @@ export default function HomePage() {
             </CardContent>
           </Card>
           <Box display="flex" justifyContent="center" mt={3}>
-            <img src="./images/logos/symbol-with-text.svg" width={125} alt="Estarta Logo" />
+            <img
+              src="./images/logos/symbol-with-text.svg"
+              width={125}
+              alt="Estarta Logo"
+            />
           </Box>
         </Container>
 
-        <div className={`pyro ${cardFlip ? 'active': ''}`}>
+        <div className={`pyro ${cardFlip ? "active" : ""}`}>
           <div className="before"></div>
           <div className="after"></div>
         </div>
@@ -119,11 +237,22 @@ export default function HomePage() {
           <div className="asset asset-cloud-4 cloud"></div>
         </div>
       </Box>
-      
+
       <div className="audios">
-        <audio id="spinning" src="./audios/wheel-spinning.wav" type="audio/mpeg" controls></audio>
-        <audio id="fireworks" src="./audios/fireworks.mp3" type="audio/mpeg" controls loop></audio>
+        <audio
+          id="spinning"
+          src="./audios/wheel-spinning.wav"
+          type="audio/mpeg"
+          controls
+        ></audio>
+        <audio
+          id="fireworks"
+          src="./audios/fireworks.mp3"
+          type="audio/mpeg"
+          controls
+          loop
+        ></audio>
       </div>
     </>
-  )
+  );
 }

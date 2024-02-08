@@ -14,9 +14,388 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 function handler(req, res) {
-    res.status(200).json({
-        name: "John Doe"
-    });
+    res.status(200).json([
+        {
+            id: 1,
+            name: "John Doe"
+        },
+        {
+            id: 2,
+            name: "John Doe"
+        },
+        {
+            id: 3,
+            name: "John Doe"
+        },
+        {
+            id: 4,
+            name: "John Doe"
+        },
+        {
+            id: 5,
+            name: "John Doe"
+        },
+        {
+            id: 6,
+            name: "John Doe"
+        },
+        {
+            id: 7,
+            name: "John Doe"
+        },
+        {
+            id: 8,
+            name: "John Doe"
+        },
+        {
+            id: 9,
+            name: "John Doe"
+        },
+        {
+            id: 10,
+            name: "John Doe"
+        },
+        {
+            id: 11,
+            name: "John Doe"
+        },
+        {
+            id: 13,
+            name: "John Doe"
+        },
+        {
+            id: 14,
+            name: "John Doe"
+        },
+        {
+            id: 15,
+            name: "John Doe"
+        },
+        {
+            id: 16,
+            name: "John Doe"
+        },
+        {
+            id: 17,
+            name: "John Doe"
+        },
+        {
+            id: 18,
+            name: "John Doe"
+        },
+        {
+            id: 19,
+            name: "John Doe"
+        },
+        {
+            id: 20,
+            name: "John Doe"
+        },
+        {
+            id: 21,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        },
+        {
+            id: 22,
+            name: "John Doe"
+        }
+    ]);
 }
 
 
